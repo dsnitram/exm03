@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}" rel="stylesheet">
+  <script th:href="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+</head>
+<body> 
+  <h1>Login</h1>
+  <form th:action="@{'/login'}" method="POST">
+    <label>
+      Nome de Usuário: <br />
+      <input type="text" name="username"/>
+    </label> <br/>
+    <label>
+      Senha:<br />
+      <input type="password" name="password"/>
+    </label> <br />
+    <input type="submit" value="login" class="btn btn-primary">
+    </form>
+    <p>Não tem usuário? <a th:href="@{'/regsitro'}"> Crie um!</a></p>
+</body>
+</html>
