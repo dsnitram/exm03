@@ -12,21 +12,29 @@
   <h1>Registro</h1>
   <form th:action="@{'/registro'}" method="POST" class="container">
   <div class="row">
-        <label class="col-sm-3" for="username">Nome de Usuário:<label>
+        <label class="col-sm-3" for="username">Nome de Usuário:</label>
         <input class="col-sm-auto" type="text" id="username" name="username" />
   </div>
   <div class="row">
-      <label class="col-sm-3" for="password1">Senha:<label>
+      <label class="col-sm-3" for="password1">Senha:</label>
       <input class="col-sm-auto" type="password" id="password1" name="password1" />
   </div>
   <div class="row">
-    <label class="col-sm-3" for="password2">Confirme a Senha::<label>
+    <label class="col-sm-3" for="password2">Confirme a Senha:</label>
     <input class="col-sm-auto" type="password" id="password2" name="password2" />
+  </div>
+  <div class="row">
+    <label class="col-sm-3" for="status">Status:</label>
+    <div class="col-sm-auto">
+    <div th:each="item: ${status}" class="row">
+        <label><input type="radio" name="status" th:value="${item.value}" th:text="${item.key}" />
+      </label>
+    </div>
+    </div>
   </div>
   <div class="row">
      <input type="submit" value="Registrar" class="btn btn-primary" />
   </div>
-  </form>
-    
+  </form>    
 </body>
 </html>
