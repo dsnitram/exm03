@@ -1,4 +1,4 @@
-package br.ufjf.dcc193.exm03;
+package br.ufjf.dcc193.exm03.login;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
