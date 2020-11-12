@@ -17,8 +17,8 @@ public class RegistroController {
   @GetMapping("/registro")
   public String getRegistro(@ModelAttribute Registro registro, Model model){
     Map<String, String> status = new LinkedHashMap<>();
-    status.put("Estudadnte", "true");
-    status.put("Profissional", "false");
+    status.put(" Estudante", "true");
+    status.put(" Profissional", "false");
     model.addAttribute("status", status);  
     return "login/registro";
   }

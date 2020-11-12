@@ -12,53 +12,106 @@
   <h1>Registro</h1>
   <form th:action="@{'/registro'}" method="POST" th:object="${registro}" class="container">
   <div class="row">
-        <label class="col-sm-3" for="username">Nome de Usuário:</label>
-        <input class="col-sm-9" type="text" id="username" th:field="*{username}" />
+      <label class="col-sm-3" for="username">Nome de Usuário:</label>
+          <div class="form-group col-sm-9">
+            <input class=" form-control" type="text" id="username" 
+            th:field="*{username}" 
+            th:classappend="${#fields.hasErrors('username')? 'is-invalid': '' }"/>
+            <strong class="text-danger"
+            th:if="${#fields.hasErrors('username')}"
+            th:errors="*{username}"
+            >Mensagem de erro username</strong>
+        </div>
+  </div>
+  <br/> 
+
+  <div class="row">
+        <label class="col-sm-3" for="fullname">Nome Completo:</label>
+          <div class="form-group col-sm-9">
+            <input class=" form-control" type="text" id="fullname" 
+            th:field="*{fullname}" 
+            th:classappend="${#fields.hasErrors('fullname')? 'is-invalid': '' }"/>
+            <strong class="text-danger"
+            th:if="${#fields.hasErrors('fullname')}"
+            th:errors="*{fullname}"
+            >Mensagem de erro fullname</strong>
+        </div>
   </div>
   <br/>
+
   <div class="row">
-    <label class="col-sm-3" for="username">Nome Completo:</label>
-    <input class="col-sm-9" type="text" id="fullname" th:field="*{fullname}" />
-</div>
-<br/>
+    <label class="col-sm-3" for="birthday">Data Nascimento:</label>
+      <div class="form-group col-sm-9">
+        <input class=" form-control" type="text" id="birthday" 
+        th:field="*{birthday}" 
+        th:classappend="${#fields.hasErrors('birthday')? 'is-invalid': '' }" placeholder="dd/mm/aaaa"/>
+        <strong class="text-danger"
+        th:if="${#fields.hasErrors('birthday')}"
+        th:errors="*{birthday}"
+        >Mensagem de erro birthday</strong>
+    </div>
+  </div>
+  <br/>
+
 <div class="row">
-  <label class="col-sm-3" for="username">Data Nascimento:</label>
-  <input class="col-sm-9" type="text" id="birthday" th:field="*{birthday}" placeholder="dd/mm/aaaa"/>
+  <label class="col-sm-3" for="pets">Animais de Estimação:</label>
+      <div class="form-group col-sm-9">
+        <input class=" form-control" type="text" id="pets" 
+        th:field="*{pets}" 
+        th:classappend="${#fields.hasErrors('pets')? 'is-invalid': '' }" />
+        <strong class="text-danger"
+        th:if="${#fields.hasErrors('pets')}"
+        th:errors="*{pets}"
+        >Mensagem de erro pets</strong>
+    </div>
 </div>
 <br/>
-<div class="row">
-  <label class="col-sm-3" for="username">Animais de Estimação:</label>
-  <input class="col-sm-9" type="number" id="pets" th:field="*{pets}" />
-</div>
-<br/>
+
   <div class="row">
-      <label class="col-sm-3" for="password1">Senha:</label>
-      <input class="col-sm-9" type="password" id="password1" th:field="*{password1}"/>
+    <label class="col-sm-3" for="password1">Senha:</label>
+        <div class="form-group col-sm-9">
+          <input class=" form-control" type="text" id="password1" 
+          th:field="*{password1}" 
+          th:classappend="${#fields.hasErrors('password1')? 'is-invalid': '' }" />
+          <strong class="text-danger"
+          th:if="${#fields.hasErrors('password1')}"
+          th:errors="*{password1}"
+          >Mensagem de erro password1</strong>
+      </div>
   </div>
   <br/>
+
   <div class="row">
-    <label class="col-sm-3" for="password2">Confirme a Senha:</label>
-    <input class="col-sm-9" type="password" id="password2"  th:field="*{password2}"/>
+    <label class="col-sm-3" for="password2">Confirme a senha:</label>
+        <div class="form-group col-sm-9">
+          <input class=" form-control" type="text" id="password2" 
+          th:field="*{password2}" 
+          th:classappend="${#fields.hasErrors('password2')? 'is-invalid': '' }" />
+          <strong class="text-danger"
+          th:if="${#fields.hasErrors('password2')}"
+          th:errors="*{password2}"
+          >Mensagem de erro password2</strong>
+      </div>
   </div>
   <br/>
-  <div class="row">
+
+  <div class="row" th:classappend="${#fields.hasErrors('status')? 'is-invalid': '' }">
     <label class="col-sm-3" for="status">Status:</label>
-    <div class="col-sm-9">
-    <div th:each="item: ${status}" class="row">
-        <label><input type="radio" name="status" th:value="${item.value}" 
-          th:text="${item.key}" th:field="*{status}" />
-      </label>
-    </div>
-    </div>
-  </div>
+      <div class="form-group col-sm-9">
+        <div th:each="item: ${status}" class="row">
+            <label><input type="radio" name="status" th:value="${item.value}" 
+              th:text="${item.key}" th:field="*{status}" />
+            </label> 
+          </div>
+          <strong class="text-danger"
+                th:if="${#fields.hasErrors('status')}"
+                th:errors="*{status}"
+                >Mensagem de erro status</strong>
+        </div>
+      </div> 
   <div class="row">
      <input type="submit" value="Registrar" class="col-sm-3 btn btn-primary" />
-  </div>
-  <ul>
-    <li th:each="error: ${#fields.detailedErrors()}">
-      <strong th:text="${error.message}">Mensagem de erro</strong>
-    </li>
-  </ul>
+  </div> 
   </form>    
 </body>
 </html>
