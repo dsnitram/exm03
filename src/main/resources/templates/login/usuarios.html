@@ -11,6 +11,27 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
      <div class="page-header">
         <h1>Lista de Usuários</h1>
     </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+        <th>Nome usuário</th>
+        <th>Nome Completo</th>
+        <th>Pets</th>
+        <th>Data de Nascimento</th>        
+        <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="usuario : ${usuarios}">
+          <td th: text="${usuario.username}">Fulano</td>
+          <td th: text="${usuario.fullname}">Fulano da silva</td>
+          <td th: text="${usuario.birthday}">Data Nascimento</td>
+          <td th: text="${usuario.pets}">pets</td>
+          <td th: text="${usuario.status}">status</td>
+         </tr>     
+      </tbody>
+    </table>
+
   </main>  
 </body>
 </html>
