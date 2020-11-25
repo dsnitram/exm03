@@ -11,5 +11,17 @@ public class HomeController {
     model.addAttribute("conteudo", "login/home::conteudo");
     return "login/defaultLayout";
   }
-  
+
+  @GetMapping("/usuarios.html")
+  public String getUsuarios(Model model){
+    model.addAttribute("conteudo", "login/usuarios::conteudo");
+    return "login/defaultLayout";  
+}
+
+@GetMapping("/detalhes.html")
+  public String getDetalhes(Model model){
+    model.addAttribute("conteudo", "login/detalhes::conteudo");
+    return "login/defaultLayout";
+  }
+
 }
