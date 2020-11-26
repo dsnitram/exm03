@@ -6,7 +6,5 @@ import org.springframework.stereotype.Service;
  @Service
 public class UsuarioService {
   @Autowired
-  private UsuarioDAO dao; {    
-  }
-  
+  private UsuarioDAO dao;   
 }
