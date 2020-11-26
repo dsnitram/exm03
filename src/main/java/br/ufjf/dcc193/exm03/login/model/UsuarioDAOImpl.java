@@ -22,8 +22,16 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
   @Override
   public int insertOne(Usuario usuario) throws DataAccessException {
-    // TODO Auto-generated method stub
-    return 0;
+    int n = jdbc.update("INSERT INTO usuario (username, fullname, password, birthday, pets, status, role) VALUES (?,?,?,?,?,?,?);",
+     usuario.getUsername(),
+     usuario.getFullname(),
+     usuario.getPassword(),
+     usuario.getBirthday(),
+     usuario.getPets(),
+     usuario.getStatus(),
+     usuario.getRole()
+    );
+    return n;
   }
 
   @Override

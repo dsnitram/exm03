@@ -10,5 +10,6 @@ public class Usuario {
   private String password;
   private Date birthday;
   private Integer pets;
-  private boolean status;  
+  private Boolean status;  
+  private String role;
 }

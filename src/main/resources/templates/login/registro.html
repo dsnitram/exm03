@@ -70,7 +70,7 @@
   <div class="row">
     <label class="col-sm-3" for="password1">Senha:</label>
         <div class="form-group col-sm-9">
-          <input class=" form-control" type="text" id="password1" 
+          <input class=" form-control" type="password" id="password1" 
           th:field="*{password1}" 
           th:classappend="${#fields.hasErrors('password1')? 'is-invalid': '' }" />
           <strong class="text-danger"
@@ -84,7 +84,7 @@
   <div class="row">
     <label class="col-sm-3" for="password2">Confirme a senha:</label>
         <div class="form-group col-sm-9">
-          <input class=" form-control" type="text" id="password2" 
+          <input class=" form-control" type="password" id="password2" 
           th:field="*{password2}" 
           th:classappend="${#fields.hasErrors('password2')? 'is-invalid': '' }" />
           <strong class="text-danger"
